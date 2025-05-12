@@ -9,25 +9,23 @@
     <h1>🎉 Juego Individual - Bingo 🎮</h1>
     <h2>Cartones de Bingo</h2>
     <div class="bingo-container">
-    {% for carton in cartones %}
-    <div class="bingo-card">
-        <div class="bingo-header">
-            <div>B</div><div>I</div><div>N</div><div>G</div><div>O</div>
-        </div>
-        {% for fila in carton %}
-        <div class="bingo-row">
-            {% for celda in fila %}
-            <div class="bingo-cell {% if celda is none %}vacio{% endif %}">
-                {% if celda is not none %}
-                    {{ celda }}
-                {% endif %}
+        {% for carton in cartones %}
+        <div class="bingo-card">
+            <div class="bingo-header">
+                <div>B</div><div>I</div><div>N</div><div>G</div><div>O</div>
             </div>
-            {% endfor %}
-        </div>
+           {% for fila in carton %}
+        <tr>
+        {% for celda in fila %}
+          {% if celda is none %}
+            <td style="background-color: #f0f0f0;">&nbsp;</td>
+          {% else %}
+            <td>{{ celda }}</td>
+          {% endif %}
         {% endfor %}
-    </div>
+      </tr>
     {% endfor %}
-</div>
+    </div>
     
 
 </body>
